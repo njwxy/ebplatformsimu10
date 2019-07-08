@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>设置继电器</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2">
+            <h1>设置继电器</h1>
+        </div>
+        <div class="col-md-12 ">
+            <form action="#" th:action="@{/setRelayPost}" th:object="${ebSetRelay}" method="post" >
+
+                <br><p/>
+                <div class="col-md-6">
+                    节点地址
+                </div>
+                <div class="col-md-6" >
+                    <input type="text" id="devAddr" name="devAddr" th:field="*{devAddr}"   onkeydown="return devKeydown(event)">
+                </div>
+
+
+                <br><p/>
+                <div class="col-md-6">
+                    插座号(0 左，1 右)
+                </div>
+                <div class="col-md-6" >
+                    <input type="text" id="slotNum" name="slotNum" th:field="*{slotNum}"   onkeydown="return devKeydown(event)">
+                </div>
+
+                <br><p/>
+                <div class="col-md-6">
+                    开=1 关=0
+                </div>
+                <div class="col-md-6" >
+                    <input type="text" id="rState" name="rState" th:field="*{rState}" >
+                </div>
+
+
+                <br><p/>
+                <div class="col-md-12 col-md-offset-4">
+                    <input type="submit" value="Submit" />
+                </div>
+
+                <br><p/>
+                <div class="panel-body col-md-offset-2">
+                    <span style="color:violet" th:text="${msg}"></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--input type="text" id="pcbAddr" name="pcbAddr" th:field="${enrollPvnode}" -->
+</body>
+</html>

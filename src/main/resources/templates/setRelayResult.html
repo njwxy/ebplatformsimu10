@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>设置结果</title>
+    <script th:inline="javascript">
+        var url="/setRelay";
+        setTimeout('location.href=url', 2000);
+    </script>
+</head>
+<body>
+<p> 提交结果 </p>
+<p th:text="${msg}"></p>
+<p>2秒后返回</p>
+
+
+</body>
+</html>

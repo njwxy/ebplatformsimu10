@@ -1,0 +1,32 @@
+package com.wxy.ebtestms.utility;
+
+
+
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.Date;
+
+public class LongDateTypeAdapter extends TypeAdapter<Date> {
+    @Override
+    public void write(JsonWriter out, Date value) throws IOException {
+        if (value == null) {
+            out.nullValue();
+        } else {
+            out.value(value.getTime());
+        }
+    }
+
+    @Override
+    public Date read(JsonReader in) throws IOException {
+        if (in.peek() == null) {
+            return null;
+        }
+        String str = in. nextString();
+        Date d  = new Date(Long.parseLong(str));
+        return d;
+    }
+}
+
